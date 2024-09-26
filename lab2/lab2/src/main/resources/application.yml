@@ -1,0 +1,50 @@
+server:
+  port: 9005
+
+#debug: true
+
+spring:
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+#      表示在视图渲染期间不保持数据库会话，避免在视图中执行延迟加载。
+    open-in-view: false
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/blps
+    username: postgres
+    password: s336262
+  main:
+    allow-bean-definition-overriding: true
+
+  mail:
+    host: smtp.gmail.com
+    username: mkdirp930@gmail.com
+    password: idjc mczh fzts mhbq
+    properties:
+      mail:
+        smtp:
+#          auth: true
+          starttls:
+            enable: true
+            required: true
+
+
+
+bitronix:
+  tm:
+    serverId: blps
+    transactionTimeout: 60
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+        hibernate: DEBUG
+
